@@ -29,6 +29,7 @@ module game_of_life #(
   always_ff @(posedge clk_40mhz) begin
     if (reset) begin
       counter += 1;
+      counter ^= counter >> 3;
       counter <<= counter % 4;
     end
   end
